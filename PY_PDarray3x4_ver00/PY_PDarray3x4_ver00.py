@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 ser = serial.Serial('COM25', baudrate = 9600, timeout = 1)
 time.sleep(3)
 
-GrayBarOn = "y"
+#GrayBarOn = "y"
+GrayBarOn = "n"
 nrows, ncols = 3, 4
 arrayVout = np.zeros(nrows * ncols).reshape((nrows, ncols))
 
@@ -34,9 +35,10 @@ while(1):
 
     print(arrayVout)
     print("Finished at " + datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
+    time.sleep(1)
 
     if GrayBarOn == "y":
-        plt.imshow(arrayVout, cmap='gray', vmin=0, vmax=5)
+        plt.imshow(arrayVout, cmap='gray', vmin=0, vmax=2)
         plt.colorbar()
         plt.show()
 
