@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 ser = serial.Serial('COM5', baudrate = 9600, timeout = 1)
 time.sleep(3)
 
-#GrayBarOn = "y"
-GrayBarOn = "n"
+GrayBarOn = "y"
+#GrayBarOn = "n"
 nrows, ncols = 3, 4
 arrayVout = np.zeros(nrows * ncols).reshape((nrows, ncols))
 
@@ -38,7 +38,7 @@ while(1):
     time.sleep(1)
 
     if GrayBarOn == "y":
-        plt.imshow(arrayVout, cmap='gray', vmin=0, vmax=2)
+        plt.imshow(arrayVout, cmap='gray', vmin=0, vmax=5)
         plt.colorbar()
         plt.show()
 
